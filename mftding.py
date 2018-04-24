@@ -11,9 +11,15 @@ def findeTWert(sheet, geschlecht, alter, wdh):
         spalte = alter - 5
     else:
         spalte = alter + 9
+
+    zeile = None
     for index, zelle in enumerate(sheet.col(spalte)):
         if zelle.value == wdh:
             zeile = index
+
+    if zeile is None:
+        return None
+
     return int(sheet.col(0)[zeile].value)
 
 t = findeTWert(xls.sheet_by_name("Übung 1"), "m", 13, 40)
