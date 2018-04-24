@@ -18,7 +18,7 @@ def findeTWert(sheet, geschlecht, alter, wdh):
             zeile = index
 
     if zeile is None:
-        return None
+        raise ValueError("kein T-Wert gefunden")
 
     return int(sheet.col(0)[zeile].value)
 
